@@ -1,0 +1,5 @@
+display the first name and last name who doesnt have sulfa
+
+select first_name, last_name
+from patients
+where allergies is not 'Sulfa';
