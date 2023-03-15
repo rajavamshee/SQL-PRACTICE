@@ -1,0 +1,2 @@
+select  CONCAT(first_name," " ,last_name) AS FULLName
+from patients;
