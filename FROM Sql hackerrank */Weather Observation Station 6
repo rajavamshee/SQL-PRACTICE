@@ -1,0 +1,4 @@
+SELECT DISTINCT city
+from station
+where city like 'A%' or city like 'E%' or city like 'I%' or city like 'U%' or city like 'O%';
+
