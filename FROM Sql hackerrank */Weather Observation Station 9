@@ -1,0 +1,3 @@
+SELECT DISTINCT city
+from station
+where city NOT LIKE 'A%' and city NOT like 'E%' and city NOT like 'I%' and city NOT like 'U%' and city NOT like 'O%';
