@@ -1,0 +1,4 @@
+select n.province_name, count(p.patient_id) p
+from province_names as n 
+join patients as p on p.province_id = n.province_id
+group by n.province_name order by p desc;
