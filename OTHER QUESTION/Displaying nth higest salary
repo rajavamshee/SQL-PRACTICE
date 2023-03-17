@@ -1,0 +1,13 @@
+SELECT DISTINCT salary
+FROM employees e1
+WHERE n-1 = (
+    SELECT COUNT(DISTINCT e2.salary)
+    FROM employees e2
+    WHERE e2.salary > e1.salary
+);
+
+
+
+/* table name --> employees
+   salary coloumn --> salary
+  */
