@@ -1,0 +1,8 @@
+SELECT salary
+FROM employees
+ORDER BY salary DESC
+LIMIT n-1, 1;
+
+
+/* where n is the number 
+*/
