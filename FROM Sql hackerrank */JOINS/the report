@@ -1,0 +1,13 @@
+with t as 
+(select a.ID,a.Name,a.MArks, b.grade from students as a
+           left join grades as b on
+           a.marks>=b.min_mark and a.marks<=max_mark)
+,
+t2 as (
+select case when grade<8 then NULL else name end as name
+   , grade
+    ,marks
+    from t
+    
+)
+select * from t2 order by grade desc, name, marks
