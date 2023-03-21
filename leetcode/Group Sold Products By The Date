@@ -3,3 +3,12 @@ GROUP_CONCAT(DISTINCT product ORDER BY product ASC SEPARATOR ',') AS products
 FROM Activities
 GROUP BY sell_date
 ORDER BY sell_date;
+
+
+
+      OR 
+      
+SELECT sell_date,COUNT(distinct product) as num_sold,
+group_concat(distinct product order by product) as products
+FROM Activities
+GROUP BY sell_date;
