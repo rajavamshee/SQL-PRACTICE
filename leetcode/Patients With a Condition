@@ -1,4 +1,4 @@
 select patient_id, patient_name, conditions
 from Patients
-where conditions LIKE '%DIAB100%'
-GROUP BY patient_id;
+where conditions LIKE '% DIAB1%' or conditions LIKE 'DIAB1%'
+ORDER BY patient_id;
