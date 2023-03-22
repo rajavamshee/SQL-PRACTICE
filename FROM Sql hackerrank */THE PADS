@@ -1,0 +1,8 @@
+select concat(name,"(", upper(left(occupation, 1)), ")")
+from OCCUPATIONS as a
+order by name asc, left(occupation, 1);
+SET sql_mode = '';
+select concat("There are a total of ", count(occupation)," ", lower(occupation), "s.")
+from OCCUPATIONS
+group by occupation
+order by count(occupation) asc, occupation asc;
