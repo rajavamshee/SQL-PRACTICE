@@ -1,0 +1,7 @@
+/
+
+WITH table1 AS (
+SELECT AVG(Sales) as AVG_SALES FROM Store_Sales
+)
+SELECT a1.* FROM Store_Sales a1, table1
+WHERE a1.Sales > table1.AVG_SALES;
