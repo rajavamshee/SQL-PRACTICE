@@ -1,0 +1,4 @@
+SELECT category
+from sales_by_film_category
+order by total_sales desc
+limit 3;
