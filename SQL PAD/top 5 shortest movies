@@ -1,0 +1,4 @@
+SELECT title
+FROM film
+ORDER BY length asc
+LIMIT 5;
