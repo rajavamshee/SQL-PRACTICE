@@ -1,3 +1,31 @@
 select abs(max(a.salary) - max(b.salary)) as sal_diff
 from db_employee a, db_employee b
 where a.department_id = 4 and b.department_id = 1;
+
+
+or 
+WITH t1 AS
+    (SELECT
+        MAX(e.salary) AS max_sal_mkt,
+        d.department 
+    FROM 
+        db_employee e
+            JOIN
+        db_dept d ON e.department_id = d.id
+    WHERE d.department IN ('marketing')
+    GROUP BY d.department),
+t2 AS
+    (SELECT
+        MAX(e.salary) AS max_sal_eng,
+        d.department 
+    FROM 
+        db_employee e
+            JOIN
+        db_dept d ON e.department_id = d.id
+    WHERE d.department IN ('engineering')
+    GROUP BY d.department)
+SELECT
+    t1.max_sal_mkt - t2.max_sal_eng AS salary_difference
+FROM 
+    t1, t2
+;
