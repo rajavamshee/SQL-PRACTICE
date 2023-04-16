@@ -1,0 +1,10 @@
+SELECT
+    u.name,
+    # sum amount for every t.account
+    SUM(amount) AS balance
+FROM Users AS u
+# join transaction table with same account
+JOIN Transactions t ON u.account = t.account
+GROUP BY t.account
+# where balance(total amount of account) more than 10000
+HAVING balance > 10000;
