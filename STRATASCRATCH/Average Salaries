@@ -1,0 +1,5 @@
+
+
+SELECT department, first_name,salary, avg(salary) OVER (PARTITION BY department)
+from employee
+
