@@ -1,8 +1,0 @@
-with t1 as(
-select artist, count(artist) as numberofoccurences
-from spotify_worldwide_daily_song_ranking
-group by artist
-order by numberofoccurences desc
-)
-select artist,numberofoccurences
-from t1
