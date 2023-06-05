@@ -1,14 +1,9 @@
-    WITH ranking AS (
-      SELECT 
-        category,
-        product,
-        SUM(spend) AS total_spend,
-        RANK() OVER (PARTITION BY category 
-          ORDER BY SUM(spend) DESC) AS rank
-      FROM product_spend
-      WHERE EXTRACT(YEAR FROM transaction_date::DATE) = 2022
-      GROUP BY category, product)
-
-    SELECT category, product, total_spend
-    FROM ranking
-    WHERE rank < 2;
+WITH cte AS (
+    SELECT category, product, SUM(spend) AS total_spend, RANK() OVER( PARTITION BY category ORDER BY SUM(spend) DESC) AS ranking
+    FROM product_spend
+    WHERE EXTRACT(YEAR FROM DATE(transaction_date)) = 2022
+    GROUP BY category, product
+)
+SELECT category, product, total_spend
+FROM cte 
+WHERE ranking <= 2
