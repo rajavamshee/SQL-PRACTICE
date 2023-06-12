@@ -1,0 +1,4 @@
+SELECT p.page_id
+from pages as p 
+
+WHERE p.page_id NOT IN ( SELECT l.page_id FROM page_likes as l)
